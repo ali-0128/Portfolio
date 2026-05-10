@@ -1,0 +1,19 @@
+const menuToggle = document.getElementById('menuToggle');
+const siteNav = document.getElementById('siteNav');
+const yearEl = document.getElementById('year');
+
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
+
+if (menuToggle && siteNav) {
+  menuToggle.addEventListener('click', () => {
+    siteNav.classList.toggle('open');
+  });
+
+  siteNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      siteNav.classList.remove('open');
+    });
+  });
+}
