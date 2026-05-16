@@ -195,6 +195,28 @@ p { margin: 0 0 14px; color: var(--muted); }
   border: 1px solid rgba(148, 163, 184, 0.1);
 }
 
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: radial-gradient(circle at center, black 35%, transparent 90%);
+}
+
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(124, 92, 255, 0.4);
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
+  
 .stat-value {
   display: block;
   font-size: 1.55rem;
