@@ -277,9 +277,16 @@ p { margin: 0 0 14px; color: var(--muted); }
 
 .project-preview {
   width: 100%;
+  height: 200px;
   border-radius: 12px;
   object-fit: cover;
-  max-height: 180px;
+  object-position: top;
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  transition: object-position 0.4s ease;
+}
+
+.project-card:hover .project-preview {
+  object-position: bottom;
 }
 
 /* ── Timeline ── */
@@ -308,6 +315,69 @@ p { margin: 0 0 14px; color: var(--muted); }
   grid-template-columns: 1.2fr 0.8fr;
   gap: 24px;
   align-items: center;
+}
+
+/* ── Certifications ── */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.cert-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 80px rgba(3, 7, 18, 0.55);
+}
+
+.cert-img-wrap {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: #fff;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.cert-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+.cert-info {
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cert-issuer {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary-2);
+}
+
+.cert-info h3 {
+  font-size: 1rem;
+  margin: 0;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.cert-date {
+  font-size: 0.85rem;
+  color: var(--muted);
 }
 
 /* ── Footer ── */
@@ -358,7 +428,8 @@ p { margin: 0 0 14px; color: var(--muted); }
     grid-template-columns: 1fr;
   }
 
-  .project-grid {
+  .project-grid,
+  .cert-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -395,7 +466,8 @@ p { margin: 0 0 14px; color: var(--muted); }
   .stats-grid { grid-template-columns: 1fr; }
 
   .skill-grid,
-  .project-grid {
+  .project-grid,
+  .cert-grid {
     grid-template-columns: 1fr;
   }
 
